@@ -2,14 +2,13 @@ schema_version: 1
 
 context:
   version: 2.0.0
-  build_number: '0'
 
 package:
   name: pyppeteer
   version: ${{ version }}
 
 source:
-- url: https://files.pythonhosted.org/packages/source/p/pyppeteer/pyppeteer-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/p/pyppeteer/pyppeteer-${{ version }}.tar.gz
   sha256: 4af63473ff36a746a53347b2336a49efda669bcd781e400bc1799b81838358d9
 
 build:
@@ -45,17 +44,18 @@ tests:
         - '*'
   - requirements:
       run:
-        - pip
         - python ${{ python_min }}.*
     script:
-      - export PYPPETEER_HOME=$(pwd)/tmp || set PYPPETEER_HOME=%CD%\tmp
-      - pyppeteer-install
+      env:
+        PYPPETEER_HOME: ${{ '$SRC_DIR/tmp' if unix else '%SRC_DIR%\tmp' }}
+      content:
+        - pyppeteer-install
 
 about:
   summary: Headless chrome/chromium automation library (unofficial port of puppeteer)
   license: MIT
   license_file: LICENSE
-  homepage: https://github.com/pyppeteer/pyppeteer
+  homepage: https://pypi.org/project/pyppeteer
   repository: https://github.com/pyppeteer/pyppeteer
   documentation: https://pyppeteer.github.io/pyppeteer
 
