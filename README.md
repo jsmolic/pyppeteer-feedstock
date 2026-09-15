@@ -3,7 +3,7 @@ About pyppeteer-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pyppeteer-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/pyppeteer/pyppeteer
+Home: https://pypi.org/project/pyppeteer
 
 Package license: MIT
 
