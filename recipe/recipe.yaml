@@ -38,6 +38,8 @@ tests:
   - python:
       imports:
         - pyppeteer
+      # skip pip check to avoid
+      #   websockets 10.4 is not supported on this platform
       pip_check: false
       python_version:
         - ${{ python_min }}.*
